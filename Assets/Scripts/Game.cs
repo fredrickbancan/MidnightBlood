@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    public void StartGame()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Greybox");
+        SceneManager.LoadScene(sceneName);
     }
     public void Exit()
     {
