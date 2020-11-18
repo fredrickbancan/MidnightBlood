@@ -505,9 +505,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 983716224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7161be0f790f80e4da5412afdf5ce0c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 049bc01d88365f64fbb223d9c73cb936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!4 &983716226
 Transform:
   m_ObjectHideFlags: 0
@@ -724,7 +725,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Greybox
+          m_StringArgument: SceneCopy
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1364830323
