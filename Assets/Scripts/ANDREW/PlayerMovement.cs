@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public CharacterController controller;
 
     public float speed = 8.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         // create a vector 3 that updates each frame. only going to affect front/back and side to side movement. y-axis (height) is not changed as we are not jumping.
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
+        Vector3 move = transform.right * moveHorizontal + transform.forward * moveVertical;
 
-        transform.Translate(movement * Time.deltaTime * speed);
-
-
+        // calls the Move() on the character controller 'controller' which is the resultant magnitude of Vector3 multiplied by speed by deltaTime.
+        controller.Move(move * speed * Time.deltaTime);
+                
     }
 }
