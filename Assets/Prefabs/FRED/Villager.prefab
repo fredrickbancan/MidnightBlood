@@ -99,10 +99,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   villagerBody: {fileID: 4948529920384558176}
   villagerTransform: {fileID: 5210361284717384966}
-  lr: {fileID: 2709980865786243975}
+  lrPrefab: {fileID: 2447691610218901707, guid: d2c7d51ad3bcc804f910500897581008,
+    type: 3}
   state: 0
   walkSpeed: 2.5
   maxVel: 5
+  fleeingMaxVelModifier: 3
+  fovAngle: 60
+  viewDistance: 10
+  spawnAuthorityDistance: 100
   walkChance: 0.35
   walkStopChance: 0.075
   rotateChance: 25
