@@ -1,11 +1,49 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManagerAlpha : MonoBehaviour
 {
+
     public GameObject player;
-    public static GameManager instance = null;//singleton instance
+    public GameObject uiCanvas;
+    public static GameManagerAlpha instance = null;//singleton instance
     private bool authoritySpawned = false;
-   
+    // timer for level
+    [SerializeField] private float levelTimer;
+    [SerializeField] private Text levelTimerHUD;
+
+    [SerializeField] private int energyRemaining;
+    [SerializeField] private Text energyRemainingHUD;
+
+    [SerializeField] private int playerScore;
+    [SerializeField] private Text playerScoreHUD;
+
+    [SerializeField] private int playerAttack;
+    [SerializeField] private Text playerAttackHUD;
+
+    [SerializeField] private bool villagersAlerted;
+    [SerializeField] private bool gamePaused;
+
+
+    void Start()
+    {
+       
+    }
+
+    void NewGame()
+    { 
+        playerScore = 0;
+       
+
+    }
+
+    void NewLevel()
+    {
+        levelTimer = 5000.0f;
+        energyRemaining = 100;
+        villagersAlerted = false;
+
+    }
 
     void Awake()
     {
