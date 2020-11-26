@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovementAlpha : MonoBehaviour
 {
@@ -26,6 +24,6 @@ public class PlayerMovementAlpha : MonoBehaviour
 
         // calls the Move() on the character controller 'controller' which is the resultant magnitude of Vector3 multiplied by speed by deltaTime.
         controller.Move(move * speed * Time.deltaTime);
-                
+        controller.Move(-Vector3.up * 9.8F * Time.deltaTime);
     }
 }

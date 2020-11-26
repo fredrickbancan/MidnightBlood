@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public void OnVillagerEscape(Vector3 eventPos)
     {
         //spawn authority and set global value
+        //enable notification in player hud they are being chased
         authoritySpawned = true;
         Debug.Log("Villager escaped and authority spawned at " + eventPos.ToString());
         Instantiate(authorityPrefab, eventPos, Quaternion.identity);

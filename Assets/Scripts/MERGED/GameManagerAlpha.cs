@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class GameManagerAlpha : MonoBehaviour
 {
 
+    public GameObject authorityPrefab;
     public GameObject player;
     public GameObject uiCanvas;
     public static GameManagerAlpha instance = null;//singleton instance
@@ -63,6 +64,10 @@ public class GameManagerAlpha : MonoBehaviour
     {
         
     }
+    public void OnPlayerCaptured()
+    {
+        Debug.Log("Player captured by authority A.I");
+    }
 
     public bool IsPlayerBloody()
     {
@@ -89,6 +94,7 @@ public class GameManagerAlpha : MonoBehaviour
         //spawn authority and set global value
         authoritySpawned = true;
         Debug.Log("Villager escaped and authority spawned at " + eventPos.ToString());
+        Instantiate(authorityPrefab, eventPos, Quaternion.identity);
     }
 
     /// <summary>
