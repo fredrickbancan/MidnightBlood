@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5210361284717384966}
   - component: {fileID: 5210361284717384967}
   - component: {fileID: 5210361284717384964}
-  - component: {fileID: 5649016791497857949}
   - component: {fileID: 4948529920384558176}
   - component: {fileID: 1748590269316834560}
+  - component: {fileID: 4075339390007499332}
   m_Layer: 0
-  m_Name: Villager
+  m_Name: Authority
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d1bab44c4b8dbde46867b493598fa577, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,36 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5649016791497857949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a61569a4ddcfaf4688de21bc473c7fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  villagerBody: {fileID: 4948529920384558176}
-  villagerTransform: {fileID: 5210361284717384966}
-  lrPrefab: {fileID: 2447691610218901707, guid: d2c7d51ad3bcc804f910500897581008,
-    type: 3}
-  state: 0
-  walkSpeed: 2.5
-  maxVel: 5
-  fleeingMaxVelModifier: 3
-  fovAngle: 60
-  viewDistance: 10
-  spawnAuthorityDistance: 75
-  walkChance: 0.35
-  walkStopChance: 0.075
-  rotateChance: 25
-  rotateChangeChance: 0.25
-  rotateStopChance: 0.15
-  rotationAmount: 1
-  drawDebugVectors: 1
 --- !u!54 &4948529920384558176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,3 +113,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000004, y: 2, z: 1.0000005}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4075339390007499332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210361284717384984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa00a321db3d5b24082e89121faa330f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAmount: 1
+  authorityBody: {fileID: 4948529920384558176}
+  authorityTransform: {fileID: 5210361284717384966}
+  lrPrefab: {fileID: 2447691610218901707, guid: d2c7d51ad3bcc804f910500897581008,
+    type: 3}
+  drawDebugVectors: 1
+  walkSpeed: 4
+  maxVel: 16
+  playerCaptureDistance: 3

@@ -2,6 +2,10 @@
 
 public class GameManager : MonoBehaviour
 {
+    /// <summary>
+    /// Reference to the authority prefab so it can be instantiated and spawned in world when required
+    /// </summary>
+    public GameObject authorityPrefab;
     public GameObject player;
     public static GameManager instance = null;//singleton instance
     private bool authoritySpawned = false;
@@ -24,6 +28,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnPlayerCaptured()
+    {
+        Debug.Log("Player captured by authority A.I");
     }
 
     public bool IsPlayerBloody()
@@ -51,6 +60,7 @@ public class GameManager : MonoBehaviour
         //spawn authority and set global value
         authoritySpawned = true;
         Debug.Log("Villager escaped and authority spawned at " + eventPos.ToString());
+        Instantiate(authorityPrefab, eventPos, Quaternion.identity);
     }
 
     /// <summary>
