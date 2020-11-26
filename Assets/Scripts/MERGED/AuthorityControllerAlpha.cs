@@ -26,25 +26,28 @@ public class AuthorityControllerAlpha : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //drawing debug frontvector
-        if (drawDebugVectors)
+        if (!GameManagerAlpha.instance.paused)
         {
-            frontVecLine.positionCount = 2;
-            frontVecLine.startColor = Color.green;
-            frontVecLine.endColor = Color.black;
-            frontVecLine.SetPosition(0, authorityTransform.position);
-            frontVecLine.SetPosition(1, authorityTransform.forward * 10 + authorityTransform.position);
-        }
-        travelDirection = GameManagerAlpha.instance.GetPlayerPos() - authorityTransform.position;
-        travelDirection.y = 0;
-        travelDirection.Normalize();
-        DirectAwayFromObstacles();
-        authorityBody.velocity += authorityTransform.forward * walkSpeed;
+            //drawing debug frontvector
+            if (drawDebugVectors)
+            {
+                frontVecLine.positionCount = 2;
+                frontVecLine.startColor = Color.green;
+                frontVecLine.endColor = Color.black;
+                frontVecLine.SetPosition(0, authorityTransform.position);
+                frontVecLine.SetPosition(1, authorityTransform.forward * 10 + authorityTransform.position);
+            }
+            travelDirection = GameManagerAlpha.instance.GetPlayerPos() - authorityTransform.position;
+            travelDirection.y = 0;
+            travelDirection.Normalize();
+            DirectAwayFromObstacles();
+            authorityBody.velocity += authorityTransform.forward * walkSpeed;
 
-        float prevy = authorityBody.velocity.y;
-        authorityBody.velocity = Vector3.ClampMagnitude(new Vector3(authorityBody.velocity.x, 0, authorityBody.velocity.z), maxVel);
-        authorityBody.velocity = new Vector3(authorityBody.velocity.x, prevy, authorityBody.velocity.z);
-        TestPlayerDetection();
+            float prevy = authorityBody.velocity.y;
+            authorityBody.velocity = Vector3.ClampMagnitude(new Vector3(authorityBody.velocity.x, 0, authorityBody.velocity.z), maxVel);
+            authorityBody.velocity = new Vector3(authorityBody.velocity.x, prevy, authorityBody.velocity.z);
+            TestPlayerDetection();
+        }
     }
 
     /// <summary>

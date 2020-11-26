@@ -9,6 +9,8 @@ public class VillagerControllerAlpha : MonoBehaviour
     private LineRenderer fovLeftLine;
     private LineRenderer fovRightLine;
 
+    bool paused = false;
+
     public enum VillagerState
     {
         WANDERING,
@@ -100,40 +102,43 @@ public class VillagerControllerAlpha : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //drawing debug frontvector
-        if(drawDebugVectors)
+        if (!GameManagerAlpha.instance.paused)
         {
-            frontVecLine.positionCount = 2;
-            frontVecLine.startColor = Color.green;
-            frontVecLine.endColor = Color.black;
-            frontVecLine.SetPosition(0, villagerTransform.position);
-            frontVecLine.SetPosition(1, villagerTransform.forward * 10 + villagerTransform.position);
-            float halfAngle = fovAngle * 0.5F;
-            float villagerAngle = villagerTransform.eulerAngles.y;
-            float leftAngle = villagerAngle - halfAngle;
-            float rightAngle = villagerAngle + halfAngle;
-            Vector3 fovLeftEdge = new Vector3(Mathf.Sin(leftAngle * Mathf.Deg2Rad), 0, Mathf.Cos(leftAngle * Mathf.Deg2Rad));
-            Vector3 fovRightEdge = new Vector3(Mathf.Sin(rightAngle * Mathf.Deg2Rad), 0, Mathf.Cos(rightAngle * Mathf.Deg2Rad));
-            fovLeftEdge.Normalize();
-            fovRightEdge.Normalize();
-            fovLeftLine.positionCount = 2;
-            fovLeftLine.startColor = Color.cyan;
-            fovLeftLine.endColor = Color.white;
-            fovLeftLine.SetPosition(0, villagerTransform.position);
-            fovLeftLine.SetPosition(1, fovLeftEdge * viewDistance + villagerTransform.position);
-            fovRightLine.positionCount = 2;
-            fovRightLine.startColor = Color.cyan;
-            fovRightLine.endColor = Color.white;
-            fovRightLine.SetPosition(0, villagerTransform.position);
-            fovRightLine.SetPosition(1, fovRightEdge * viewDistance + villagerTransform.position);
+            //drawing debug frontvector
+            if (drawDebugVectors)
+            {
+                frontVecLine.positionCount = 2;
+                frontVecLine.startColor = Color.green;
+                frontVecLine.endColor = Color.black;
+                frontVecLine.SetPosition(0, villagerTransform.position);
+                frontVecLine.SetPosition(1, villagerTransform.forward * 10 + villagerTransform.position);
+                float halfAngle = fovAngle * 0.5F;
+                float villagerAngle = villagerTransform.eulerAngles.y;
+                float leftAngle = villagerAngle - halfAngle;
+                float rightAngle = villagerAngle + halfAngle;
+                Vector3 fovLeftEdge = new Vector3(Mathf.Sin(leftAngle * Mathf.Deg2Rad), 0, Mathf.Cos(leftAngle * Mathf.Deg2Rad));
+                Vector3 fovRightEdge = new Vector3(Mathf.Sin(rightAngle * Mathf.Deg2Rad), 0, Mathf.Cos(rightAngle * Mathf.Deg2Rad));
+                fovLeftEdge.Normalize();
+                fovRightEdge.Normalize();
+                fovLeftLine.positionCount = 2;
+                fovLeftLine.startColor = Color.cyan;
+                fovLeftLine.endColor = Color.white;
+                fovLeftLine.SetPosition(0, villagerTransform.position);
+                fovLeftLine.SetPosition(1, fovLeftEdge * viewDistance + villagerTransform.position);
+                fovRightLine.positionCount = 2;
+                fovRightLine.startColor = Color.cyan;
+                fovRightLine.endColor = Color.white;
+                fovRightLine.SetPosition(0, villagerTransform.position);
+                fovRightLine.SetPosition(1, fovRightEdge * viewDistance + villagerTransform.position);
+            }
+
+
+            handleState();
+
+            float prevy = villagerBody.velocity.y;
+            villagerBody.velocity = Vector3.ClampMagnitude(new Vector3(villagerBody.velocity.x, 0, villagerBody.velocity.z), state == VillagerState.FLEEING ? maxVel * fleeingMaxVelModifier : maxVel);
+            villagerBody.velocity = new Vector3(villagerBody.velocity.x, prevy, villagerBody.velocity.z);
         }
-
-
-        handleState();
-
-        float prevy = villagerBody.velocity.y;
-        villagerBody.velocity = Vector3.ClampMagnitude(new Vector3(villagerBody.velocity.x, 0, villagerBody.velocity.z), state == VillagerState.FLEEING ? maxVel * fleeingMaxVelModifier : maxVel);
-        villagerBody.velocity = new Vector3(villagerBody.velocity.x, prevy, villagerBody.velocity.z);
     }
 
     private void handleState()

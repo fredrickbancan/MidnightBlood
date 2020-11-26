@@ -23,7 +23,10 @@ public class PlayerMovementAlpha : MonoBehaviour
         Vector3 move = transform.right * moveHorizontal + transform.forward * moveVertical;
 
         // calls the Move() on the character controller 'controller' which is the resultant magnitude of Vector3 multiplied by speed by deltaTime.
-        controller.Move(move * speed * Time.deltaTime);
-        controller.Move(-Vector3.up * 9.8F * Time.deltaTime);
+        if (!GameManagerAlpha.instance.paused)
+        {
+            controller.Move(move * speed * Time.deltaTime);
+            controller.Move(-Vector3.up * 9.8F * Time.deltaTime);
+        }
     }
 }
