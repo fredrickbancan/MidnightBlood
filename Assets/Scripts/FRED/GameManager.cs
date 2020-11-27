@@ -30,6 +30,29 @@ public class GameManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// To be called each update when the player is in the correct position to kill a villager (I.E, Behind the vilager, in range and pointing towards them)
+    /// This function is useful for triggering a display of U.I components that tell the player they can kill a villager with mouse click.
+    /// </summary>
+    public void OnPlayerEnterKillPosition()
+    {
+        Debug.Log("Player is in Kill Position");
+    }
+
+    /// <summary>
+    /// To be called each update when the player is NOT in the correct position to kill a villager (I.E, Behind the vilager, in range and pointing towards them)
+    /// </summary>
+    public void OnPlayerExitKillPosition()
+    {
+        Debug.Log("Player is Not in Kill Position");
+    }
+
+    public void OnPlayerKillVillager(GameObject villager)
+    {
+        Debug.Log("Player killed villager at: " + villager.transform.position.ToString());
+        Destroy(villager);
+    }
+
     public void OnPlayerCaptured()
     {
         Debug.Log("Player captured by authority A.I");

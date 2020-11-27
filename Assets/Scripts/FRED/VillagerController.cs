@@ -97,6 +97,16 @@ public class VillagerController : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (drawDebugVectors)
+        {
+            Destroy(frontVecLine);
+            Destroy(fovLeftLine);
+            Destroy(fovRightLine);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -231,12 +241,6 @@ public class VillagerController : MonoBehaviour
         {
             GameManager.instance.OnVillagerEscape(villagerTransform.position);
             Destroy(gameObject);//spawned an authority and this villager has escaped. Despawning villager.
-            if(drawDebugVectors)
-            {
-                Destroy(frontVecLine);
-                Destroy(fovLeftLine);
-                Destroy(fovRightLine);
-            }
             return;
         }
 
