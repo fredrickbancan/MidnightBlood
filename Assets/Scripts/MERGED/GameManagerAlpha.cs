@@ -4,7 +4,24 @@ using UnityEngine.UI;
 
 public class GameManagerAlpha : MonoBehaviour
 {
-    public static GameManagerAlpha instance = null;//singleton instance
+    private static GameManagerAlpha privateInstance;
+    public static GameManagerAlpha instance
+    {
+        get
+        {
+            if (privateInstance == null)
+            {
+                privateInstance = FindObjectOfType<GameManagerAlpha>();
+                if (privateInstance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(GameManagerAlpha).Name;
+                    privateInstance = obj.AddComponent<GameManagerAlpha>();
+                }
+            }
+            return privateInstance;
+        }
+    }
 
     public GameObject authorityPrefab;
     public GameObject player;
@@ -35,23 +52,25 @@ public class GameManagerAlpha : MonoBehaviour
     public bool restarted = false;
     public bool inMenu = false;
     public bool paused = false;
-    public bool gameOver = false;
 
     void Awake()
     {
-        Debug.Log("Awake");
+        Debug.LogError("Awake");
         GetComponents();
-        if (instance == null)
+        if (privateInstance == null)
         {
-            Debug.Log("Instance is null");
-            instance = this;
+            Debug.LogError("Instance is null");
+            privateInstance = this as GameManagerAlpha;
+            DontDestroyOnLoad(gameObject);
             inMenu = true;
             paused = true;
-            DontDestroyOnLoad(gameObject);
-            
             mainMenu.SetActive(true);
             pauseMenu.SetActive(false);
             gameOverMenu.SetActive(false);
+        }
+        else if (this != privateInstance)
+        {
+            Destroy(gameObject);
         }
     }
     void Start()
@@ -60,6 +79,11 @@ public class GameManagerAlpha : MonoBehaviour
     }
     void Update()
     {
+        if (this != instance)
+        {
+            Debug.Log("nani");
+        }
+        Debug.Log(paused);
         // If escape key is pressed, invert active state of UI canvas component
         if (Input.GetKeyDown(KeyCode.Escape) && !inMenu)
         {
@@ -72,7 +96,6 @@ public class GameManagerAlpha : MonoBehaviour
                 else
                 {
                     PauseGame();
-                    paused = true;
                 }
             }
         }
@@ -84,7 +107,7 @@ public class GameManagerAlpha : MonoBehaviour
     /// </summary>
     public void OnPlayerEnterKillPosition()
     {
-        Debug.Log("Player is in Kill Position");
+        //Debug.Log("Player is in Kill Position");
     }
 
     /// <summary>
@@ -92,20 +115,20 @@ public class GameManagerAlpha : MonoBehaviour
     /// </summary>
     public void OnPlayerExitKillPosition()
     {
-        Debug.Log("Player is Not in Kill Position");
+        //Debug.Log("Player is Not in Kill Position");
     }
 
     public void OnPlayerKillVillager(GameObject villager)
     {
         //Call ui and camera changes here
         //change scores and energy
-        Debug.Log("Player killed villager at: " + villager.transform.position.ToString());
+        //Debug.Log("Player killed villager at: " + villager.transform.position.ToString());
         Destroy(villager);
     }
 
     public void OnPlayerCaptured()
     {
-        Debug.Log("Player captured by authority A.I");
+        //Debug.Log("Player captured by authority A.I");
         EndGame();
     }
 
@@ -173,7 +196,6 @@ public class GameManagerAlpha : MonoBehaviour
         Time.timeScale = 1;
         inMenu = false;
         paused = false;
-        //gameOver = false;
         SceneManager.LoadScene(sceneName);
     }
 
@@ -185,8 +207,8 @@ public class GameManagerAlpha : MonoBehaviour
     }
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
         Cursor.visible = false;
+        pauseMenu.SetActive(false);
         paused = false;
     }
     public void ReturnToMenu()
@@ -195,18 +217,15 @@ public class GameManagerAlpha : MonoBehaviour
         pauseMenu.SetActive(false);
         inMenu = true;
         paused = true;
-        //gameOver = true;
         Cursor.visible = true;
     }
     public void EndGame()
     {
         GetComponents();
-        //Time.timeScale = 0;
         gameOverMenu.SetActive(true);
         pauseMenu.SetActive(false);
         inMenu = true;
         paused = true;
-        //gameOver = true;
         Cursor.visible = true;
     }
 
@@ -221,7 +240,7 @@ public class GameManagerAlpha : MonoBehaviour
         gameOverMenu = GameObject.Find("_UI").transform.GetChild(1).gameObject;
         pauseMenu = GameObject.Find("_UI").transform.GetChild(2).gameObject;
         mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 }
