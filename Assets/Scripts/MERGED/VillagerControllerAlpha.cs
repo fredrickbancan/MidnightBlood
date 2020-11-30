@@ -99,6 +99,18 @@ public class VillagerControllerAlpha : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+
+        if (drawDebugVectors)
+        {
+            Destroy(frontVecLine);
+            Destroy(fovLeftLine);
+            Destroy(fovRightLine);
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {

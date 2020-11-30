@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManagerAlpha : MonoBehaviour
 {
@@ -76,6 +76,31 @@ public class GameManagerAlpha : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// To be called each update when the player is in the correct position to kill a villager (I.E, Behind the vilager, in range and pointing towards them)
+    /// This function is useful for triggering a display of U.I components that tell the player they can kill a villager with mouse click.
+    /// </summary>
+    public void OnPlayerEnterKillPosition()
+    {
+        Debug.Log("Player is in Kill Position");
+    }
+
+    /// <summary>
+    /// To be called each update when the player is NOT in the correct position to kill a villager (I.E, Behind the vilager, in range and pointing towards them)
+    /// </summary>
+    public void OnPlayerExitKillPosition()
+    {
+        Debug.Log("Player is Not in Kill Position");
+    }
+
+    public void OnPlayerKillVillager(GameObject villager)
+    {
+        //Call ui and camera changes here
+        //change scores and energy
+        Debug.Log("Player killed villager at: " + villager.transform.position.ToString());
+        Destroy(villager);
     }
 
     public void OnPlayerCaptured()
