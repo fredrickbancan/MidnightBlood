@@ -75,15 +75,22 @@ public class GameManagerAlpha : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("Start");
+        Debug.LogError("Start");
+
+        Cursor.lockState = CursorLockMode.Confined;
+
+        GetComponents();
+        /*SetupMainMenuButtons();
+        SetupPauseMenuButtons();
+        SetuptGameOverMenuButtons();*/
     }
     void Update()
     {
-        if (this != instance)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("nani");
+            EndGame();
         }
-        Debug.Log(paused);
+        //Debug.Log(paused);
         // If escape key is pressed, invert active state of UI canvas component
         if (Input.GetKeyDown(KeyCode.Escape) && !inMenu)
         {
@@ -91,10 +98,12 @@ public class GameManagerAlpha : MonoBehaviour
             {
                 if (paused)
                 {
+                    Debug.Log("Paused");
                     ResumeGame();
                 }
                 else
                 {
+                    Debug.Log("Unpaused");
                     PauseGame();
                 }
             }
@@ -174,20 +183,17 @@ public class GameManagerAlpha : MonoBehaviour
     {
         return authoritySpawned;
     }
-
     void NewLevel()
     {
         levelTimer = 5000.0f;
         energyRemaining = 100;
         villagersAlerted = false;
     }
-    
     void NewGame()
     {
         playerScore = 0;
     }
-
-    public void StartGame(string sceneName)
+    public void StartGame()
     {
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
@@ -196,9 +202,8 @@ public class GameManagerAlpha : MonoBehaviour
         Time.timeScale = 1;
         inMenu = false;
         paused = false;
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("MainStageAlpha");
     }
-
     public void PauseGame()
     {
         paused = true;
@@ -215,6 +220,7 @@ public class GameManagerAlpha : MonoBehaviour
     {
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
         inMenu = true;
         paused = true;
         Cursor.visible = true;
@@ -228,19 +234,41 @@ public class GameManagerAlpha : MonoBehaviour
         paused = true;
         Cursor.visible = true;
     }
-
     public void QuitGame()
     {
         Application.Quit();
     }
-
     void GetComponents()
     {
-        mainMenu = GameObject.Find("_UI").transform.GetChild(0).gameObject;
-        gameOverMenu = GameObject.Find("_UI").transform.GetChild(1).gameObject;
-        pauseMenu = GameObject.Find("_UI").transform.GetChild(2).gameObject;
-        mainMenu.SetActive(false);
+        mainMenu = GameObject.Find("UI").transform.GetChild(0).gameObject;
+        gameOverMenu = GameObject.Find("UI").transform.GetChild(1).gameObject;
+        pauseMenu = GameObject.Find("UI").transform.GetChild(2).gameObject;
+
+        /*mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false);*/
     }
+    /*void SetupMainMenuButtons()
+    {
+        Button button = GameObject.Find("Start Button").GetComponent<Button>();
+        button.onClick.AddListener(StartGame);
+        Button buttonTwo = GameObject.Find("Quit Button").GetComponent<Button>();
+        buttonTwo.onClick.AddListener(QuitGame);
+    }
+    void SetuptGameOverMenuButtons()
+    {
+        Button button = GameObject.Find("Play Button").GetComponent<Button>();
+        button.onClick.AddListener(StartGame);
+        button = GameObject.Find("Exit Button").GetComponent<Button>();
+        button.onClick.AddListener(ReturnToMenu);
+    }
+    void SetupPauseMenuButtons()
+    {
+        Button button = GameObject.Find("Resume Button").GetComponent<Button>();
+        button.onClick.AddListener(ResumeGame);
+        button = GameObject.Find("Restart Button").GetComponent<Button>();
+        button.onClick.AddListener(StartGame);
+        button = GameObject.Find("Menu Button").GetComponent<Button>();
+        button.onClick.AddListener(ReturnToMenu);
+    }*/
 }
