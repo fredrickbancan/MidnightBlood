@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4948529920384558176}
   - component: {fileID: 1748590269316834560}
   - component: {fileID: 1613137260398966700}
+  - component: {fileID: 5572688636775511154}
   m_Layer: 0
   m_Name: VillagerFemale
   m_TagString: Villager
@@ -42,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5210361284717384984}
-  m_Mesh: {fileID: -744652436743236120, guid: f030e26c5eef79548b773248f17d1644, type: 3}
+  m_Mesh: {fileID: 6434008096517374666, guid: 93c29b18c4500b3429810c8032965686, type: 3}
 --- !u!23 &5210361284717384964
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -143,3 +144,22 @@ MonoBehaviour:
   rotateStopChance: 0.15
   rotationAmount: 1
   drawDebugVectors: 1
+--- !u!95 &5572688636775511154
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210361284717384984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: caebff7a012ee5845901b5da86c1c573, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
