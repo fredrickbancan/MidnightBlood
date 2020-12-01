@@ -27,9 +27,9 @@ public class GameManagerAlpha : MonoBehaviour
     public GameObject player;
 
     // UI Canvases
-    private GameObject pauseMenu;
-    private GameObject mainMenu;
-    private GameObject gameOverMenu;
+    public GameObject pauseMenu;
+    public GameObject mainMenu;
+    public GameObject gameOverMenu;
 
     // timer for level
     [SerializeField] private float levelTimer;
@@ -45,28 +45,31 @@ public class GameManagerAlpha : MonoBehaviour
     [SerializeField] private Text playerAttackHUD;
 
     [SerializeField] private bool villagersAlerted;
-    //[SerializeField] private bool gamePaused;
+    [SerializeField] private bool playerCaptured;
 
     private bool authoritySpawned = false;
     bool started = false;
-    public bool restarted = false;
+    public bool sceneRestarted = false;
     public bool inMenu = false;
     public bool paused = false;
 
     void Awake()
     {
-        Debug.LogError("Awake");
-        GetComponents();
         if (privateInstance == null)
         {
-            Debug.LogError("Instance is null");
+            GetMenus();
+            SetupMainMenuButtons();
+            SetupPauseMenuButtons();
+            SetuptGameOverMenuButtons();
+
             privateInstance = this as GameManagerAlpha;
             DontDestroyOnLoad(gameObject);
             inMenu = true;
             paused = true;
+
             mainMenu.SetActive(true);
-            pauseMenu.SetActive(false);
             gameOverMenu.SetActive(false);
+            pauseMenu.SetActive(false);
         }
         else if (this != privateInstance)
         {
@@ -75,17 +78,11 @@ public class GameManagerAlpha : MonoBehaviour
     }
     void Start()
     {
-        Debug.LogError("Start");
-
         Cursor.lockState = CursorLockMode.Confined;
-
-        GetComponents();
-        /*SetupMainMenuButtons();
-        SetupPauseMenuButtons();
-        SetuptGameOverMenuButtons();*/
     }
     void Update()
     {
+        // Temporary button for testing purpuses
         if (Input.GetKeyDown(KeyCode.Q))
         {
             EndGame();
@@ -98,12 +95,10 @@ public class GameManagerAlpha : MonoBehaviour
             {
                 if (paused)
                 {
-                    Debug.Log("Paused");
                     ResumeGame();
                 }
                 else
                 {
-                    Debug.Log("Unpaused");
                     PauseGame();
                 }
             }
@@ -139,16 +134,24 @@ public class GameManagerAlpha : MonoBehaviour
     {
         //Debug.Log("Player captured by authority A.I");
         EndGame();
+        Cursor.visible = true;
+        Debug.Log("Captured");
+
+        GameObject[] authorities = GameObject.FindGameObjectsWithTag("BigMan");
+        foreach (GameObject npc in authorities)
+        {
+            Destroy(npc);
+        }
+    }
+    
+    public bool IsPlayerBloody()
+    {
+        return true;
     }
 
     public void ReloadPlayer()
     {
         player = GameObject.Find("Player");
-    }
-
-    public bool IsPlayerBloody()
-    {
-        return true;
     }
 
     public Vector3 GetPlayerPos()
@@ -195,29 +198,34 @@ public class GameManagerAlpha : MonoBehaviour
     }
     public void StartGame()
     {
+        GetMenus();
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);
         Cursor.visible = false;
-        Time.timeScale = 1;
         inMenu = false;
         paused = false;
+        Time.timeScale = 1;
+        GameManagerHelper.restarted = true;
         SceneManager.LoadScene("MainStageAlpha");
     }
     public void PauseGame()
     {
+        Time.timeScale = 0;
         paused = true;
         pauseMenu.SetActive(true);
         Cursor.visible = true;
     }
     public void ResumeGame()
     {
+        Time.timeScale = 1;
         Cursor.visible = false;
         pauseMenu.SetActive(false);
         paused = false;
     }
     public void ReturnToMenu()
     {
+        Time.timeScale = 0;
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
@@ -227,7 +235,7 @@ public class GameManagerAlpha : MonoBehaviour
     }
     public void EndGame()
     {
-        GetComponents();
+        Time.timeScale = 0;
         gameOverMenu.SetActive(true);
         pauseMenu.SetActive(false);
         inMenu = true;
@@ -238,37 +246,33 @@ public class GameManagerAlpha : MonoBehaviour
     {
         Application.Quit();
     }
-    void GetComponents()
+    public void GetMenus()
     {
         mainMenu = GameObject.Find("UI").transform.GetChild(0).gameObject;
         gameOverMenu = GameObject.Find("UI").transform.GetChild(1).gameObject;
         pauseMenu = GameObject.Find("UI").transform.GetChild(2).gameObject;
-
-        /*mainMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);*/
     }
-    /*void SetupMainMenuButtons()
+    void SetupMainMenuButtons()
     {
-        Button button = GameObject.Find("Start Button").GetComponent<Button>();
+        Button button = GameObject.Find("StartButton").GetComponent<Button>();
         button.onClick.AddListener(StartGame);
-        Button buttonTwo = GameObject.Find("Quit Button").GetComponent<Button>();
-        buttonTwo.onClick.AddListener(QuitGame);
+        button = GameObject.Find("QuitButton").GetComponent<Button>();
+        button.onClick.AddListener(QuitGame);
     }
     void SetuptGameOverMenuButtons()
     {
-        Button button = GameObject.Find("Play Button").GetComponent<Button>();
+        Button button = GameObject.Find("PlayButton").GetComponent<Button>();
         button.onClick.AddListener(StartGame);
-        button = GameObject.Find("Exit Button").GetComponent<Button>();
+        button = GameObject.Find("ExitButton").GetComponent<Button>();
         button.onClick.AddListener(ReturnToMenu);
     }
     void SetupPauseMenuButtons()
     {
-        Button button = GameObject.Find("Resume Button").GetComponent<Button>();
+        Button button = GameObject.Find("ResumeButton").GetComponent<Button>();
         button.onClick.AddListener(ResumeGame);
-        button = GameObject.Find("Restart Button").GetComponent<Button>();
+        button = GameObject.Find("RestartButton").GetComponent<Button>();
         button.onClick.AddListener(StartGame);
-        button = GameObject.Find("Menu Button").GetComponent<Button>();
+        button = GameObject.Find("MenuButton").GetComponent<Button>();
         button.onClick.AddListener(ReturnToMenu);
-    }*/
+    }
 }

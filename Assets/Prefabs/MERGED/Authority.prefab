@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2472389656368952613}
   m_Layer: 0
   m_Name: Authority
-  m_TagString: Untagged
+  m_TagString: BigMan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

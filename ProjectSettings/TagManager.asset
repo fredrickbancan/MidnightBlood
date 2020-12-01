@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Villager
   - UI
+  - BigMan
   layers:
   - Default
   - TransparentFX
