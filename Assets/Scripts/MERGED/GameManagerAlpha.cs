@@ -30,20 +30,20 @@ public class GameManagerAlpha : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject gameOverMenu;
+    public GameObject hudMenu;
+    Slider hudTimer;
 
     // timer for level
-    [SerializeField] private float levelTimer;
-    [SerializeField] private Text levelTimerHUD;
-
-    [SerializeField] private int energyRemaining;
-    [SerializeField] private Text energyRemainingHUD;
-
-    [SerializeField] private int playerScore;
-    [SerializeField] private Text playerScoreHUD;
+    [SerializeField] private float levelTime;
+    public float remainingTime;
 
     [SerializeField] private int playerAttack;
     [SerializeField] private Text playerAttackHUD;
 
+    [SerializeField] private int killCount;
+    private Text killCountText;
+
+    [SerializeField] private bool gameStarted;
     [SerializeField] private bool villagersAlerted;
     [SerializeField] private bool playerCaptured;
 
@@ -55,6 +55,7 @@ public class GameManagerAlpha : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log(levelTime);
         if (privateInstance == null)
         {
             GetMenus();
@@ -66,10 +67,11 @@ public class GameManagerAlpha : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             inMenu = true;
             paused = true;
-
+            
             mainMenu.SetActive(true);
             gameOverMenu.SetActive(false);
             pauseMenu.SetActive(false);
+            hudMenu.SetActive(false);
         }
         else if (this != privateInstance)
         {
@@ -78,16 +80,32 @@ public class GameManagerAlpha : MonoBehaviour
     }
     void Start()
     {
+        remainingTime = levelTime;
         Cursor.lockState = CursorLockMode.Confined;
     }
     void Update()
     {
+        if (gameStarted)
+        {
+            remainingTime -= Time.deltaTime;
+
+            if (GameObject.Find("Slider"))
+            {
+                hudTimer = GameObject.Find("Slider").GetComponent<Slider>();
+                
+                hudTimer.value = 1 - (remainingTime - 0) / (levelTime - 0);
+            }
+
+            if (remainingTime <= 0)
+            {
+                EndGame();
+            }
+        }
         // Temporary button for testing purpuses
         if (Input.GetKeyDown(KeyCode.Q))
         {
             EndGame();
         }
-        //Debug.Log(paused);
         // If escape key is pressed, invert active state of UI canvas component
         if (Input.GetKeyDown(KeyCode.Escape) && !inMenu)
         {
@@ -112,6 +130,7 @@ public class GameManagerAlpha : MonoBehaviour
     public void OnPlayerEnterKillPosition()
     {
         //Debug.Log("Player is in Kill Position");
+        GameObject.Find("CanKillText").GetComponent<Text>().color = new Color(1, 1, 1, 1);
     }
 
     /// <summary>
@@ -120,6 +139,11 @@ public class GameManagerAlpha : MonoBehaviour
     public void OnPlayerExitKillPosition()
     {
         //Debug.Log("Player is Not in Kill Position");
+        GameObject text;
+        if ((text = GameObject.Find("CanKillText")))
+        {
+            text.GetComponent<Text>().color = new Color(1, 1, 1, 0.25f);
+        }
     }
 
     public void OnPlayerKillVillager(GameObject villager)
@@ -128,6 +152,8 @@ public class GameManagerAlpha : MonoBehaviour
         //change scores and energy
         //Debug.Log("Player killed villager at: " + villager.transform.position.ToString());
         Destroy(villager);
+        killCount++;
+        killCountText.text = killCount.ToString();
     }
 
     public void OnPlayerCaptured()
@@ -135,7 +161,6 @@ public class GameManagerAlpha : MonoBehaviour
         //Debug.Log("Player captured by authority A.I");
         EndGame();
         Cursor.visible = true;
-        Debug.Log("Captured");
 
         GameObject[] authorities = GameObject.FindGameObjectsWithTag("BigMan");
         foreach (GameObject npc in authorities)
@@ -174,7 +199,7 @@ public class GameManagerAlpha : MonoBehaviour
     public void OnVillagerEscape(Vector3 eventPos)
     {
         //spawn authority and set global value
-        authoritySpawned = true;
+        GameObject.Find("ChasedText").GetComponent<Text>().color = new Color(1, 0.43f, 0.43f, 1);
         Debug.Log("Villager escaped and authority spawned at " + eventPos.ToString());
         Instantiate(authorityPrefab, eventPos, Quaternion.identity);
     }
@@ -186,26 +211,19 @@ public class GameManagerAlpha : MonoBehaviour
     {
         return authoritySpawned;
     }
-    void NewLevel()
-    {
-        levelTimer = 5000.0f;
-        energyRemaining = 100;
-        villagersAlerted = false;
-    }
-    void NewGame()
-    {
-        playerScore = 0;
-    }
     public void StartGame()
     {
-        GetMenus();
+        //GetMenus();
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        hudMenu.SetActive(false);
         Cursor.visible = false;
         inMenu = false;
         paused = false;
+        gameStarted = true;
         Time.timeScale = 1;
+        killCount = 0;
         GameManagerHelper.restarted = true;
         SceneManager.LoadScene("MainStageAlpha");
     }
@@ -229,6 +247,8 @@ public class GameManagerAlpha : MonoBehaviour
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        hudMenu.SetActive(false);
+        remainingTime = levelTime;
         inMenu = true;
         paused = true;
         Cursor.visible = true;
@@ -238,9 +258,16 @@ public class GameManagerAlpha : MonoBehaviour
         Time.timeScale = 0;
         gameOverMenu.SetActive(true);
         pauseMenu.SetActive(false);
+        hudMenu.SetActive(false);
         inMenu = true;
         paused = true;
         Cursor.visible = true;
+
+        GameObject.Find("KillsTextCounter").GetComponent<Text>().text = killCount.ToString();
+        GameObject.Find("TimeTextCounter").GetComponent<Text>().text = (remainingTime / levelTime).ToString("0") + ":" + (remainingTime % 60).ToString("0");
+        GameObject.Find("ScoreTextCounter").GetComponent<Text>().text = ((int)(killCount * remainingTime)).ToString();
+
+        remainingTime = levelTime;
     }
     public void QuitGame()
     {
@@ -251,6 +278,8 @@ public class GameManagerAlpha : MonoBehaviour
         mainMenu = GameObject.Find("UI").transform.GetChild(0).gameObject;
         gameOverMenu = GameObject.Find("UI").transform.GetChild(1).gameObject;
         pauseMenu = GameObject.Find("UI").transform.GetChild(2).gameObject;
+        hudMenu = GameObject.Find("UI").transform.GetChild(3).gameObject;
+        killCountText = GameObject.Find("CounterText").GetComponent<Text>();
     }
     void SetupMainMenuButtons()
     {
