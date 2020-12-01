@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: 
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/GRANT/Greybox.unity
+    path: Assets/Scenes/GRANT/Preserved/Greybox.unity
     guid: df2f65599762dfa4ca04e4671f89aed1
   - enabled: 1
     path: Assets/Scenes/SAM/SceneCopy.unity
