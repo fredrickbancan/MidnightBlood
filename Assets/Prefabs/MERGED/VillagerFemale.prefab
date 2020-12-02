@@ -136,7 +136,7 @@ MonoBehaviour:
   fleeingMaxVelModifier: 3
   fovAngle: 60
   viewDistance: 10
-  spawnAuthorityDistance: 100
+  spawnAuthorityDistance: 30
   walkChance: 0.35
   walkStopChance: 0.075
   rotateChance: 25

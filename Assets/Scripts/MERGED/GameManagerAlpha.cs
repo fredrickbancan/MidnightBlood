@@ -51,6 +51,15 @@ public class GameManagerAlpha : MonoBehaviour
     public bool paused = false;
     public bool playerInChurchTrigger = false;
     public bool gameOver = false;
+    public bool churchBellRang = false;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip callForHelpSound;
+    [SerializeField] AudioClip callToPlayerSound;
+    [SerializeField] AudioClip screamFromAttackSound;
+    [SerializeField] AudioClip playerDiesSound;
+    [SerializeField] AudioClip churchBellSound;
+    [SerializeField] int bellTimer = 20;
 
     void Awake()
     {
@@ -93,6 +102,14 @@ public class GameManagerAlpha : MonoBehaviour
                 
                 hudTimer.value = 1 - remainingTime / levelTime;
             }
+
+            if (((int) remainingTime == bellTimer) && !churchBellRang)
+            {
+                audioSource = player.GetComponent<AudioSource>();
+                audioSource.PlayOneShot(churchBellSound);
+
+            }
+
 
             if (remainingTime <= 0)
             {
@@ -176,6 +193,9 @@ public class GameManagerAlpha : MonoBehaviour
 
     public void OnPlayerKillVillager(GameObject villager)
     {
+        audioSource = player.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(screamFromAttackSound);
+
         //Call ui and camera changes here
         //change scores and energy
         //Debug.Log("Player killed villager at: " + villager.transform.position.ToString());
@@ -188,6 +208,8 @@ public class GameManagerAlpha : MonoBehaviour
 
     public void OnPlayerCaptured()
     {
+        audioSource = player.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(playerDiesSound);
         //Debug.Log("Player captured by authority A.I");
         gameOver = true;
         EndGame();
@@ -228,9 +250,14 @@ public class GameManagerAlpha : MonoBehaviour
 
     public void OnVillagerEscape(Vector3 eventPos)
     {
+
+        audioSource = player.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(callForHelpSound);
+
         //spawn authority and set global value
         GameObject.Find("ChasedText").GetComponent<Text>().color = new Color(1, 0.43f, 0.43f, 1);
         Debug.Log("Villager escaped and authority spawned at " + eventPos.ToString());
+
         Instantiate(authorityPrefab, eventPos, Quaternion.identity);
     }
 
@@ -239,6 +266,9 @@ public class GameManagerAlpha : MonoBehaviour
     /// </summary>
     public bool IsAuthoritySpawned()
     {
+
+        audioSource = player.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(callToPlayerSound);
         return authoritySpawned;
     }
     public void StartGame()
@@ -266,7 +296,7 @@ public class GameManagerAlpha : MonoBehaviour
             energyLevel *= newNightEnergyMultiplier;
         }
         GameManagerHelper.restarted = true;
-        SceneManager.LoadScene("MainStageBeta");
+        SceneManager.LoadScene("Gold");
     }
     public void PauseGame()
     {
@@ -362,4 +392,6 @@ public class GameManagerAlpha : MonoBehaviour
         button = GameObject.Find("MenuButton").GetComponent<Button>();
         button.onClick.AddListener(ReturnToMenu);
     }
+
+
 }
