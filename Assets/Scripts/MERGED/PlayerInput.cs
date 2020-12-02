@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovementAlpha : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     public CharacterController controller;
 
@@ -27,6 +27,14 @@ public class PlayerMovementAlpha : MonoBehaviour
         {
             controller.Move(move * speed * Time.deltaTime);
             controller.Move(-Vector3.up * 9.8F * Time.deltaTime);
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))//allow player to end round early
+        {
+            if(GameManagerAlpha.instance.playerInChurchTrigger)
+            {
+                GameManagerAlpha.instance.EndGame();
+            }
         }
     }
 }

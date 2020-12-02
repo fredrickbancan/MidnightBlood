@@ -23,39 +23,37 @@ public class GameManagerAlpha : MonoBehaviour
         }
     }
 
-    public GameObject authorityPrefab;
-    public GameObject player;
+    [SerializeField] private GameObject authorityPrefab;
+    [SerializeField] private GameObject player;
 
     // UI Canvases
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject gameOverMenu;
     public GameObject hudMenu;
-    Slider hudTimer;
+    public Slider hudTimer;
+    public Slider hudEnergy;
 
     // timer for level
     [SerializeField] private float levelTime;
-    public float remainingTime;
+    [SerializeField] private float energyDepletionSpeed;
+    [SerializeField] private float energyKillRewardAmount;
+    [SerializeField] private float newNightEnergyMultiplier;
+    private float remainingTime;
+    private float energyLevel = 1.0F;
 
-    [SerializeField] private int playerAttack;
-    [SerializeField] private Text playerAttackHUD;
-
-    [SerializeField] private int killCount;
+    private int killCount;
     private Text killCountText;
-
-    [SerializeField] private bool gameStarted;
-    [SerializeField] private bool villagersAlerted;
-    [SerializeField] private bool playerCaptured;
+    private bool gameStarted;
 
     private bool authoritySpawned = false;
-    bool started = false;
-    public bool sceneRestarted = false;
     public bool inMenu = false;
     public bool paused = false;
+    public bool playerInChurchTrigger = false;
+    public bool gameOver = false;
 
     void Awake()
     {
-        Debug.Log(levelTime);
         if (privateInstance == null)
         {
             GetMenus();
@@ -80,7 +78,6 @@ public class GameManagerAlpha : MonoBehaviour
     }
     void Start()
     {
-        remainingTime = levelTime;
         Cursor.lockState = CursorLockMode.Confined;
     }
     void Update()
@@ -88,17 +85,36 @@ public class GameManagerAlpha : MonoBehaviour
         if (gameStarted)
         {
             remainingTime -= Time.deltaTime;
-
-            if (GameObject.Find("Slider"))
+            killCountText.text = killCount.ToString();
+            GameObject g;
+            if ( (g = GameObject.Find("Slider")))
             {
-                hudTimer = GameObject.Find("Slider").GetComponent<Slider>();
+                hudTimer = g.GetComponent<Slider>();
                 
-                hudTimer.value = 1 - (remainingTime - 0) / (levelTime - 0);
+                hudTimer.value = 1 - remainingTime / levelTime;
             }
 
             if (remainingTime <= 0)
             {
+                if (!playerInChurchTrigger)
+                {
+                    gameOver = true;
+                }
                 EndGame();
+
+            }
+
+            energyLevel -= energyDepletionSpeed * Time.deltaTime;
+            if(energyLevel <= 0)
+            {
+                gameOver = true;
+                EndGame();
+            }
+            if ((g = GameObject.Find("EnergySlider")))
+            {
+                hudEnergy = g.GetComponent<Slider>();
+
+                hudEnergy.value = 1 - energyLevel;
             }
         }
         // Temporary button for testing purpuses
@@ -121,6 +137,18 @@ public class GameManagerAlpha : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnPlayerEnterChurchTrigger()
+    {
+        playerInChurchTrigger = true;
+        GameObject.Find("ChurchText").GetComponent<Text>().color = new Color(1, 0.43f, 0.43f, 1);
+    }
+
+    public void OnPlayerExitChurchTrigger()
+    {
+        playerInChurchTrigger = false;
+        GameObject.Find("ChurchText").GetComponent<Text>().color = new Color(1, 0.43f, 0.43f, 0);
     }
 
     /// <summary>
@@ -154,14 +182,16 @@ public class GameManagerAlpha : MonoBehaviour
         Destroy(villager);
         killCount++;
         killCountText.text = killCount.ToString();
+        energyLevel += energyKillRewardAmount;
+        if (energyLevel > 1.0F) energyLevel = 1.0F;
     }
 
     public void OnPlayerCaptured()
     {
         //Debug.Log("Player captured by authority A.I");
+        gameOver = true;
         EndGame();
         Cursor.visible = true;
-
         GameObject[] authorities = GameObject.FindGameObjectsWithTag("BigMan");
         foreach (GameObject npc in authorities)
         {
@@ -214,6 +244,7 @@ public class GameManagerAlpha : MonoBehaviour
     public void StartGame()
     {
         //GetMenus();
+        remainingTime = levelTime;
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);
@@ -222,10 +253,20 @@ public class GameManagerAlpha : MonoBehaviour
         inMenu = false;
         paused = false;
         gameStarted = true;
+        playerInChurchTrigger = false;
         Time.timeScale = 1;
-        killCount = 0;
+        if (gameOver)
+        {
+            energyLevel = 1.0F;
+            killCount = 0;
+            gameOver = false;
+        }
+        else 
+        {
+            energyLevel *= newNightEnergyMultiplier;
+        }
         GameManagerHelper.restarted = true;
-        SceneManager.LoadScene("MainStageAlpha");
+        SceneManager.LoadScene("MainStageBeta");
     }
     public void PauseGame()
     {
@@ -243,16 +284,24 @@ public class GameManagerAlpha : MonoBehaviour
     }
     public void ReturnToMenu()
     {
+        if(gameOver)
+        {
+            QuitGame();
+            return;
+        }
         Time.timeScale = 0;
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         hudMenu.SetActive(false);
         remainingTime = levelTime;
+        killCount = 0;
+        energyLevel = 1.0F;
         inMenu = true;
         paused = true;
         Cursor.visible = true;
     }
+
     public void EndGame()
     {
         Time.timeScale = 0;
@@ -262,12 +311,21 @@ public class GameManagerAlpha : MonoBehaviour
         inMenu = true;
         paused = true;
         Cursor.visible = true;
-
+        if(!gameOver)
+        {
+            GameObject.Find("GameOverText").GetComponent<Text>().text = "You survived the night";
+            GameObject.Find("ReplayButton").GetComponentInChildren<Text>().text = "Continue";
+            GameObject.Find("ExitButton").GetComponentInChildren<Text>().text = "Main Menu";
+        }
+        else
+        {
+            GameObject.Find("GameOverText").GetComponent<Text>().text = "Game Over";
+            GameObject.Find("ReplayButton").GetComponentInChildren<Text>().text = "Play Again";
+            GameObject.Find("ExitButton").GetComponentInChildren<Text>().text = "Quit";
+        }
         GameObject.Find("KillsTextCounter").GetComponent<Text>().text = killCount.ToString();
-        GameObject.Find("TimeTextCounter").GetComponent<Text>().text = (remainingTime / levelTime).ToString("0") + ":" + (remainingTime % 60).ToString("0");
-        GameObject.Find("ScoreTextCounter").GetComponent<Text>().text = ((int)(killCount * remainingTime)).ToString();
-
-        remainingTime = levelTime;
+        GameObject.Find("TimeTextCounter").GetComponent<Text>().text = ((int)(remainingTime / 60.0F)).ToString() + ":" + ((int)(remainingTime % 60)).ToString();
+        GameObject.Find("ScoreTextCounter").GetComponent<Text>().text = ((int)(killCount + killCount * remainingTime)).ToString();
     }
     public void QuitGame()
     {
@@ -290,7 +348,7 @@ public class GameManagerAlpha : MonoBehaviour
     }
     void SetuptGameOverMenuButtons()
     {
-        Button button = GameObject.Find("PlayButton").GetComponent<Button>();
+        Button button = GameObject.Find("ReplayButton").GetComponent<Button>();
         button.onClick.AddListener(StartGame);
         button = GameObject.Find("ExitButton").GetComponent<Button>();
         button.onClick.AddListener(ReturnToMenu);

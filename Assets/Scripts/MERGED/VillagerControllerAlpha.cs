@@ -8,9 +8,6 @@ public class VillagerControllerAlpha : MonoBehaviour
     private LineRenderer frontVecLine;
     private LineRenderer fovLeftLine;
     private LineRenderer fovRightLine;
-
-    bool paused = false;
-
     public enum VillagerState
     {
         WANDERING,
