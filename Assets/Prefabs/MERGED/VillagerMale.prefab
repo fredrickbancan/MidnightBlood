@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5210361284717384984
+--- !u!1 &5704177913782431330
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5210361284717384966}
-  - component: {fileID: 5210361284717384967}
-  - component: {fileID: 5210361284717384964}
-  - component: {fileID: 4948529920384558176}
-  - component: {fileID: 1748590269316834560}
-  - component: {fileID: 1613137260398966700}
-  - component: {fileID: 5572688636775511154}
+  - component: {fileID: 5704177913782431331}
+  - component: {fileID: 5704177913782431337}
+  - component: {fileID: 5704177913782431336}
+  - component: {fileID: 5704177913782431335}
+  - component: {fileID: 5704177913782431334}
+  - component: {fileID: 5704177913782431333}
+  - component: {fileID: 5704177913782431332}
   m_Layer: 0
-  m_Name: VillagerFemale
+  m_Name: VillagerMale
   m_TagString: Villager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5210361284717384966
+--- !u!4 &5704177913782431331
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
+  m_GameObject: {fileID: 5704177913782431330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.1, y: -1.648, z: -24.2}
+  m_LocalPosition: {x: -64.42, y: -1.684, z: -24.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5210361284717384967
+--- !u!33 &5704177913782431337
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
-  m_Mesh: {fileID: 6434008096517374666, guid: f4b60a7f338063d4080f98d2639d0b9d, type: 3}
---- !u!23 &5210361284717384964
+  m_GameObject: {fileID: 5704177913782431330}
+  m_Mesh: {fileID: 6434008096517374666, guid: 8d46b6f6ba0529e4599e42e0191adebd, type: 3}
+--- !u!23 &5704177913782431336
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
+  m_GameObject: {fileID: 5704177913782431330}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &4948529920384558176
+--- !u!54 &5704177913782431335
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
+  m_GameObject: {fileID: 5704177913782431330}
   serializedVersion: 2
   m_Mass: 75
   m_Drag: 20
@@ -101,33 +101,33 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &1748590269316834560
+--- !u!65 &5704177913782431334
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
+  m_GameObject: {fileID: 5704177913782431330}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000004, y: 1.7609782, z: 1.0000005}
-  m_Center: {x: 0, y: 0.8602998, z: 0}
---- !u!114 &1613137260398966700
+  m_Size: {x: 1.0000004, y: 1.8554826, z: 1.0000005}
+  m_Center: {x: 0, y: 0.9196646, z: 0}
+--- !u!114 &5704177913782431333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
+  m_GameObject: {fileID: 5704177913782431330}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7345c4a876dd0d4b976e559af95999d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  villagerBody: {fileID: 4948529920384558176}
-  villagerTransform: {fileID: 5210361284717384966}
+  villagerBody: {fileID: 5704177913782431335}
+  villagerTransform: {fileID: 5704177913782431331}
   lrPrefab: {fileID: 2447691610218901707, guid: 34eebb28cf351684487fb1a4a681f5e0,
     type: 3}
   state: 0
@@ -144,14 +144,14 @@ MonoBehaviour:
   rotateStopChance: 0.15
   rotationAmount: 1
   drawDebugVectors: 0
---- !u!95 &5572688636775511154
+--- !u!95 &5704177913782431332
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210361284717384984}
+  m_GameObject: {fileID: 5704177913782431330}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: caebff7a012ee5845901b5da86c1c573, type: 2}

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5210361284717384984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.8, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5210361284717384984}
-  m_Mesh: {fileID: 6335376173933553835, guid: a213572edb2fafc498f9929f4c3a5b7e, type: 3}
+  m_Mesh: {fileID: 6434008096517374666, guid: 8d46b6f6ba0529e4599e42e0191adebd, type: 3}
 --- !u!23 &5210361284717384964
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -111,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000004, y: 2, z: 1.0000005}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000004, y: 1.8992665, z: 1.0000005}
+  m_Center: {x: 0, y: 0.94846445, z: 0}
 --- !u!114 &2472389656368952613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   authorityTransform: {fileID: 5210361284717384966}
   lrPrefab: {fileID: 2447691610218901707, guid: 34eebb28cf351684487fb1a4a681f5e0,
     type: 3}
-  drawDebugVectors: 1
+  drawDebugVectors: 0
   walkSpeed: 4
   maxVel: 16
   playerCaptureDistance: 3
