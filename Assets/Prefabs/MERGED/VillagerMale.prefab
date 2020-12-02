@@ -131,7 +131,7 @@ MonoBehaviour:
   lrPrefab: {fileID: 2447691610218901707, guid: 34eebb28cf351684487fb1a4a681f5e0,
     type: 3}
   state: 0
-  walkSpeed: 2.5
+  walkSpeed: 3
   maxVel: 5
   fleeingMaxVelModifier: 3
   fovAngle: 60
