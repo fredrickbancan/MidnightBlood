@@ -208,8 +208,6 @@ public class GameManagerAlpha : MonoBehaviour
 
     public void OnPlayerCaptured()
     {
-        audioSource = player.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(playerDiesSound);
         //Debug.Log("Player captured by authority A.I");
         gameOver = true;
         EndGame();
@@ -350,6 +348,8 @@ public class GameManagerAlpha : MonoBehaviour
         }
         else
         {
+            audioSource = player.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(playerDiesSound);
             GameObject.Find("GameOverText").GetComponent<Text>().text = "Game Over";
             GameObject.Find("ReplayButton").GetComponentInChildren<Text>().text = "Play Again";
             GameObject.Find("ExitButton").GetComponentInChildren<Text>().text = "Quit";
