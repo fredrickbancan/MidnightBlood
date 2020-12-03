@@ -34,8 +34,8 @@ public class AuthorityControllerAlpha : MonoBehaviour
                 frontVecLine.positionCount = 2;
                 frontVecLine.startColor = Color.green;
                 frontVecLine.endColor = Color.black;
-                frontVecLine.SetPosition(0, authorityTransform.position);
-                frontVecLine.SetPosition(1, authorityTransform.forward * 10 + authorityTransform.position);
+                frontVecLine.SetPosition(0, authorityTransform.position + authorityTransform.GetComponent<BoxCollider>().center);
+                frontVecLine.SetPosition(1, authorityTransform.forward * 10 + authorityTransform.position + authorityTransform.GetComponent<BoxCollider>().center);
             }
             travelDirection = GameManagerAlpha.instance.GetPlayerPos() - authorityTransform.position;
             travelDirection.y = 0;

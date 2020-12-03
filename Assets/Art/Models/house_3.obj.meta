@@ -3,11 +3,396 @@ guid: 24ed470eb5abb0c47b03d83e04b0c516
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Door_Arch_Double1Mat
+    second: {fileID: 2100000, guid: a6159a7a9a0798c4ebff554785d653fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_End_Left3Mat
+    second: {fileID: 2100000, guid: c71b3680c09e0fa44af6bb7646fcf7f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_End_Right2Mat
+    second: {fileID: 2100000, guid: 159b03d9d8ceb9146816d76267e64903, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_Middle2Mat
+    second: {fileID: 2100000, guid: cc916fcab677f4e41bf1b66856c365b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_Middle3Mat
+    second: {fileID: 2100000, guid: 16993ce925baa814dbd2b09203eda1be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_Middle4Mat
+    second: {fileID: 2100000, guid: 72c5f48be765e224aad081ef0a9fdaf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_Small_Offset2Mat
+    second: {fileID: 2100000, guid: ae7ff9866bae4ff4eb7335e1569a614c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Roof_Small_Offset3Mat
+    second: {fileID: 2100000, guid: 6b40f424addd28948abe3a489ecb0a72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_Lamp2Mat
+    second: {fileID: 2100000, guid: e8f21cc9a32ede64d8a06d2f2e37216f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_Lamp3Mat
+    second: {fileID: 2100000, guid: 9f7eeb59df21a3e4a9705a0e43b6ad48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_Panel_step3Mat
+    second: {fileID: 2100000, guid: 366cc21b30b878e4bafce223ca516770, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_Panel_step4Mat
+    second: {fileID: 2100000, guid: ce996ee8367afaf468e538ead0ff118e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel30Mat
+    second: {fileID: 2100000, guid: ec8b16abc0c5b744fbe794c5f94e248a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel31Mat
+    second: {fileID: 2100000, guid: e58b3e5b55ee1a647b91b01eacb66cdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel32Mat
+    second: {fileID: 2100000, guid: 0b70d03d934f1a34abd5c03777ee617c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel33Mat
+    second: {fileID: 2100000, guid: 49926916d360273449091929b895b772, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel34Mat
+    second: {fileID: 2100000, guid: 21049b28ed696e64a8caed410ad737bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel35Mat
+    second: {fileID: 2100000, guid: afca86d3504e8d84c85d9197d3bbd6c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel36Mat
+    second: {fileID: 2100000, guid: dafce132e0d362e47852911706fa6dd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel37Mat
+    second: {fileID: 2100000, guid: 60db52f4094f5db47a5ea4a7b0c02261, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel38Mat
+    second: {fileID: 2100000, guid: 7eafafbdc9991c14b8b21e92f253668b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel39Mat
+    second: {fileID: 2100000, guid: 6261cc2a1bc52c545938aa1089884dc8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel40Mat
+    second: {fileID: 2100000, guid: 2516ecae7ec9eb04e943e3c2a9594856, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel41Mat
+    second: {fileID: 2100000, guid: 393536f81237a244793ce4c1bf9740ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel42Mat
+    second: {fileID: 2100000, guid: 9859dd62a555e994a8fa04adbc0b5b19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel43Mat
+    second: {fileID: 2100000, guid: d29c06134f0b92b40a5fa4527249e2be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel44Mat
+    second: {fileID: 2100000, guid: b7db9d09aab3e014680139faa407df87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel45Mat
+    second: {fileID: 2100000, guid: 6d5da84e812ccc24e8a35749dc89f04a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel46Mat
+    second: {fileID: 2100000, guid: 7f0366c1ffcbf3d48a55bae6c869742e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel47Mat
+    second: {fileID: 2100000, guid: 1179ede94068afc41a2158a66322c4f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel48Mat
+    second: {fileID: 2100000, guid: bac43eea76258804f886c70683cbfc64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel49Mat
+    second: {fileID: 2100000, guid: 854599d184ddd474aaeacfb94fa8432c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel50Mat
+    second: {fileID: 2100000, guid: 8d66351f60eab204e8b0a6c53bd853ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel51Mat
+    second: {fileID: 2100000, guid: 4b2d88fc1717cd047850c7ac0f2c6915, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel52Mat
+    second: {fileID: 2100000, guid: a558045de496cd946880eaa484c6e0ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel53Mat
+    second: {fileID: 2100000, guid: be68961d156889a4aa7c4a6931b6a13f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel54Mat
+    second: {fileID: 2100000, guid: 9e4da98f2dac78248afc85619166e352, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel55Mat
+    second: {fileID: 2100000, guid: 6523f403bc1255341994c75638fd2f8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel56Mat
+    second: {fileID: 2100000, guid: ad496af7387e59246a60a067b674667b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel57Mat
+    second: {fileID: 2100000, guid: 3c2f529d15ab5334a98bd1b71780f8b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel58Mat
+    second: {fileID: 2100000, guid: 838b3b9bbd6516a4985bfdc7373e6f20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel59Mat
+    second: {fileID: 2100000, guid: ed234eafcaabf7646839ba81732fc157, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel60Mat
+    second: {fileID: 2100000, guid: d5358e3587affe54f8b8e1432f05ce2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel61Mat
+    second: {fileID: 2100000, guid: af6c302fdaa423b438cbd6e5a50ee71d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel62Mat
+    second: {fileID: 2100000, guid: 6f8281727c94a9247902c30141b456f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel64Mat
+    second: {fileID: 2100000, guid: a88a9a3db79389943b6953ea100295ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel65Mat
+    second: {fileID: 2100000, guid: 56a5f1a1a8a523944a7f18ac277a29c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel66Mat
+    second: {fileID: 2100000, guid: 26986f6f00ad8c34695eec5f4aab46ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel67Mat
+    second: {fileID: 2100000, guid: f79709e0d7e74bb448a464f17cc31953, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel68Mat
+    second: {fileID: 2100000, guid: 271bb01096658864c9ef283263dd5f5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel69Mat
+    second: {fileID: 2100000, guid: ed69e3aea24e1614aa9b44a908f9235a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel70Mat
+    second: {fileID: 2100000, guid: e3d94f54573c4964e812f94dbc543379, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel71Mat
+    second: {fileID: 2100000, guid: c2bae1b6cf7043e48bc9690708c9319e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel72Mat
+    second: {fileID: 2100000, guid: 25643b448deb8d442a8f3f1f05ca8f09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel73Mat
+    second: {fileID: 2100000, guid: 00e1c6d90acf5284a85a2195bc631791, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel74Mat
+    second: {fileID: 2100000, guid: 84072dd3f23b6684a9449ee975313715, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel75Mat
+    second: {fileID: 2100000, guid: 9a1aa02e97e9c674493daddcfe73a7e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel76Mat
+    second: {fileID: 2100000, guid: 9242b56e79a22e64ba61c03c551eb1e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel77Mat
+    second: {fileID: 2100000, guid: 8819de2a2ed143747a7fd265b1af0595, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Wall_panel78Mat
+    second: {fileID: 2100000, guid: db4b209a727d43947aca92f56de91c5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Bay2Mat
+    second: {fileID: 2100000, guid: a5ccbb55a0f132547b7f225078bbdf61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Bay3Mat
+    second: {fileID: 2100000, guid: b64f50714bf43d74c8f9fc8a6bea49d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Bay4Mat
+    second: {fileID: 2100000, guid: 8d9024f4aa8483a49878f7ee5fc838ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Bay5Mat
+    second: {fileID: 2100000, guid: 5ecc637d425eaeb46823ba4a969dc0cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large13Mat
+    second: {fileID: 2100000, guid: 704424ca920706f4cb029522394dcc4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large14Mat
+    second: {fileID: 2100000, guid: 17d5bd5d2c66f9642839e506855e79d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large15Mat
+    second: {fileID: 2100000, guid: 3d3863430607a604a8d893a4928f3f5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large16Mat
+    second: {fileID: 2100000, guid: 5209046fe0d553242b8698897d122fbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large17Mat
+    second: {fileID: 2100000, guid: c5554888a75f8044ea24b20eb17753b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large5Mat
+    second: {fileID: 2100000, guid: 634a2fdeb19b3874da0f4a8c758a1fcd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large6Mat
+    second: {fileID: 2100000, guid: 2866e7f3482ac7648b3d9992af9e842d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large7Mat
+    second: {fileID: 2100000, guid: 918c8763f74718647a3d0b50d2ed833e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large8Mat
+    second: {fileID: 2100000, guid: a4ba74c6eebb50e4a976f2e79d0ec5fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Large9Mat
+    second: {fileID: 2100000, guid: ca56696746741774287c0956d5a451f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Small5Mat
+    second: {fileID: 2100000, guid: 6d3a4207f7455c64c9d308aaf978cda7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_3Story_Window_Sq_Small7Mat
+    second: {fileID: 2100000, guid: 85ff9eb41933127438c67f3a64c5998d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_panel63_House_3StoryMat
+    second: {fileID: 2100000, guid: 1f39bd052f07cc6428452401bc7b179d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4

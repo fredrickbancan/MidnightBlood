@@ -3,7 +3,187 @@ guid: 53f7531eef26f6b4bbda88fa90a02adc
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Door_Standed2Mat
+    second: {fileID: 2100000, guid: b361792b553fe4549a1dab5133f7d1a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Roof_End_Left2Mat
+    second: {fileID: 2100000, guid: ee73d7166c8b73940a222fa68efe46bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Roof_End_Right1Mat
+    second: {fileID: 2100000, guid: 6d196306f94f0f0408c0745916096c5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Roof_Middle1Mat
+    second: {fileID: 2100000, guid: 5db4c049df56c2e41ac7aa784992d410, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Roof_Small_Offset1Mat
+    second: {fileID: 2100000, guid: 1f663afbec48b364ab6b1ac5621ffc90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_LampMat
+    second: {fileID: 2100000, guid: 3d6d2ffc401302645a31f06b74cce613, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_Panel_step6Mat
+    second: {fileID: 2100000, guid: 6e431d3e1ddddb649827990e98f884cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel10Mat
+    second: {fileID: 2100000, guid: b7f24498d5b81d04286fbb82759bd3e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel11Mat
+    second: {fileID: 2100000, guid: bc8a60f2b2256db4faf9e096df231799, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel13Mat
+    second: {fileID: 2100000, guid: 2597cba55a2809341879e8ef6a3e4061, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel14Mat
+    second: {fileID: 2100000, guid: 6a16b8ad66cb79d41b7993aac0ec9fc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel15Mat
+    second: {fileID: 2100000, guid: f3eec600371fefe49b3adca8322b2ed7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel16Mat
+    second: {fileID: 2100000, guid: 2f137384a31dd2d4cb834ece45dddf24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel17Mat
+    second: {fileID: 2100000, guid: 11eae911f21a91a4d9032238a7e2c822, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel18Mat
+    second: {fileID: 2100000, guid: b58370df81739e249ac6359781d9d126, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel19Mat
+    second: {fileID: 2100000, guid: cc3502656984161438ed63f2010c5b22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel20Mat
+    second: {fileID: 2100000, guid: a301ba01b186faf4d982cc7a194d2173, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel21Mat
+    second: {fileID: 2100000, guid: b0436fbac94cf9d4383236d28f22c806, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel22Mat
+    second: {fileID: 2100000, guid: ae6ad0e1cdf479141ac4f4d779a9e390, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel23Mat
+    second: {fileID: 2100000, guid: 0e577f1788c217f40ad9baec0ea3a23d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel24Mat
+    second: {fileID: 2100000, guid: 3103923a75121ea4fb540dad4adf54f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel25Mat
+    second: {fileID: 2100000, guid: ede0588e350169042ac0702e39e9b973, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel26Mat
+    second: {fileID: 2100000, guid: accf246cbf130e3499e5487e4eb19c1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel27Mat
+    second: {fileID: 2100000, guid: 96d9f75e8982c3d4a9e4c1b4161899af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel28Mat
+    second: {fileID: 2100000, guid: 2422febdf06c6ad4d95f5c6239b531ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel29Mat
+    second: {fileID: 2100000, guid: bd73842fe6fe56c43a6c69eb6d34c967, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Wall_panel9Mat
+    second: {fileID: 2100000, guid: 0e75f4358b2ec1e458ced1f47c12454c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Bay1Mat
+    second: {fileID: 2100000, guid: d5fcf328a0b584a4b9c756e3f50e7fe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Large10Mat
+    second: {fileID: 2100000, guid: 985ac103a4b02d24ea4765c4c05d7d9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Large11Mat
+    second: {fileID: 2100000, guid: 9358619593bba204b94fd88ce62f7dfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Large12Mat
+    second: {fileID: 2100000, guid: a16b04e9f2b0c9247a08f126f58fc3d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Large2Mat
+    second: {fileID: 2100000, guid: 4d79d2eb1a6a4af4a8387e6a6b64b61d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Large3Mat
+    second: {fileID: 2100000, guid: f64996c02823fb648869449d669cb0bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Small4Mat
+    second: {fileID: 2100000, guid: 9703cac86bfd7404a8284156773d375c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_2Story_Window_Sq_Small6Mat
+    second: {fileID: 2100000, guid: 22788d74957047943908f510c80b344c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_panel12_House_2StoryMat
+    second: {fileID: 2100000, guid: 60e6d7f143e3f43409e2c3b1599dd288, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -50,7 +230,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     bakeAxisConversion: 0
-    preserveHierarchy: 0
+    preserveHierarchy: 1
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001

@@ -59,7 +59,7 @@ public class VillagerControllerAlpha : MonoBehaviour
     public float rotationAmount = 1.0F;
 
     public bool walking { get => isWalkingFowards; }
-    private bool isWalkingFowards;
+    public bool isWalkingFowards;
 
     public bool rotating { get => isRotating; }
     private bool isRotating = false;
@@ -119,8 +119,8 @@ public class VillagerControllerAlpha : MonoBehaviour
                 frontVecLine.positionCount = 2;
                 frontVecLine.startColor = Color.green;
                 frontVecLine.endColor = Color.black;
-                frontVecLine.SetPosition(0, villagerTransform.position);
-                frontVecLine.SetPosition(1, villagerTransform.forward * 10 + villagerTransform.position);
+                frontVecLine.SetPosition(0, villagerTransform.position + villagerTransform.GetComponent<BoxCollider>().center);
+                frontVecLine.SetPosition(1, villagerTransform.forward * 10 + villagerTransform.position + villagerTransform.GetComponent<BoxCollider>().center);
                 float halfAngle = fovAngle * 0.5F;
                 float villagerAngle = villagerTransform.eulerAngles.y;
                 float leftAngle = villagerAngle - halfAngle;
@@ -132,13 +132,13 @@ public class VillagerControllerAlpha : MonoBehaviour
                 fovLeftLine.positionCount = 2;
                 fovLeftLine.startColor = Color.cyan;
                 fovLeftLine.endColor = Color.white;
-                fovLeftLine.SetPosition(0, villagerTransform.position);
-                fovLeftLine.SetPosition(1, fovLeftEdge * viewDistance + villagerTransform.position);
+                fovLeftLine.SetPosition(0, villagerTransform.position + villagerTransform.GetComponent<BoxCollider>().center);
+                fovLeftLine.SetPosition(1, fovLeftEdge * viewDistance + villagerTransform.position + villagerTransform.GetComponent<BoxCollider>().center);
                 fovRightLine.positionCount = 2;
                 fovRightLine.startColor = Color.cyan;
                 fovRightLine.endColor = Color.white;
-                fovRightLine.SetPosition(0, villagerTransform.position);
-                fovRightLine.SetPosition(1, fovRightEdge * viewDistance + villagerTransform.position);
+                fovRightLine.SetPosition(0, villagerTransform.position + villagerTransform.GetComponent<BoxCollider>().center);
+                fovRightLine.SetPosition(1, fovRightEdge * viewDistance + villagerTransform.position + villagerTransform.GetComponent<BoxCollider>().center);
             }
 
 
@@ -170,6 +170,7 @@ public class VillagerControllerAlpha : MonoBehaviour
 
     private void DoStateWandering()
     {
+
         if (!isWalkingFowards)
             isWalkingFowards = Random.Range(0.0F, 100.0F) <= walkChance;
 

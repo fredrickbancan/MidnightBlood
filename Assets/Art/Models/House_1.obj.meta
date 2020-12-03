@@ -3,7 +3,92 @@ guid: 5e86c8c8086b2d14faea9b5868b98631
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Door_Standed1Mat
+    second: {instanceID: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Roof_End1Mat
+    second: {instanceID: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Roof_End_Left1Mat
+    second: {instanceID: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_Lamp1Mat
+    second: {fileID: 2100000, guid: 6df9f7e01ffa6e345aefb86f55f1ecfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_Panel_step5Mat
+    second: {fileID: 2100000, guid: f90575e1aa3d2704daf0f3b5be8172c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_panel2Mat
+    second: {fileID: 2100000, guid: 4ac99c0a2d0599e4f8cd48a771ed0e10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_panel4Mat
+    second: {fileID: 2100000, guid: 6878cc6ff0d5513418f3bdfaff9cc3b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_panel5Mat
+    second: {fileID: 2100000, guid: f382effb19baee243832f7d0d5890a0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_panel6Mat
+    second: {fileID: 2100000, guid: 22fcf3963a7227a4ca1c6d72c782d2b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_panel7Mat
+    second: {fileID: 2100000, guid: 53cf0dea13a37974bb45e275af6acc7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Wall_panel8Mat
+    second: {fileID: 2100000, guid: 3ab41aa32efb02047a63441dec84eab6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Window_Sq_Large1Mat
+    second: {fileID: 2100000, guid: a38abf139c2d06e49bc183d63b5dfbf6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Window_Sq_LargeMat
+    second: {fileID: 2100000, guid: 78c5511aa00f6814fbcd156a6421faff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Window_Sq_Small1Mat
+    second: {fileID: 2100000, guid: 0081698938a98934d9e33df8b8f0b948, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Window_Sq_Small2Mat
+    second: {fileID: 2100000, guid: de17032ec65dc8c4e86052af1578f8ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Hut_Window_Sq_Small3Mat
+    second: {fileID: 2100000, guid: 93e902e01f4fdae43b988f58459f54af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_panel3_Small_HutMat
+    second: {fileID: 2100000, guid: 8beb2dd7ddeb33747bb2c7ccef05a6cd, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
