@@ -295,10 +295,6 @@ public class GameManagerAlpha : MonoBehaviour
             killCount = 0;
             gameOver = false;
         }
-        else 
-        {
-            energyLevel *= newNightEnergyMultiplier;
-        }
         GameManagerHelper.restarted = true;
         SceneManager.LoadScene("Gold");
     }
@@ -350,6 +346,7 @@ public class GameManagerAlpha : MonoBehaviour
             GameObject.Find("GameOverText").GetComponent<Text>().text = "You survived the night";
             GameObject.Find("ReplayButton").GetComponentInChildren<Text>().text = "Continue";
             GameObject.Find("ExitButton").GetComponentInChildren<Text>().text = "Main Menu";
+            energyLevel *= newNightEnergyMultiplier;
         }
         else
         {

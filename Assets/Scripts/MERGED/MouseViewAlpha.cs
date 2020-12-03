@@ -8,6 +8,8 @@ public class MouseViewAlpha : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
+    float yRotation = 0f;
+    float prevMouseX;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,7 @@ public class MouseViewAlpha : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         xRotation -= mouseY;
         // Clamp the camera to limit it from being able to look to far down, ending up looking behind the player
@@ -31,8 +32,12 @@ public class MouseViewAlpha : MonoBehaviour
         {
             Cursor.visible = false;
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            // To rotate the camera around the y-axis and therefore turn around left and right in the game
-            playerBody.Rotate(Vector3.up * mouseX);
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+
+            float deltaMouseX = mouseX - prevMouseX;
+            yRotation += deltaMouseX;
+            playerBody.Rotate(Vector3.up * yRotation);
+            prevMouseX = mouseX;
         }
     }
 }

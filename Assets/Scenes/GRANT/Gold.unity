@@ -28328,10 +28328,10 @@ MonoBehaviour:
   hudMenu: {fileID: 0}
   hudTimer: {fileID: 0}
   hudEnergy: {fileID: 0}
-  levelTime: 100
-  energyDepletionSpeed: 0.025
+  levelTime: 120
+  energyDepletionSpeed: 0.02
   energyKillRewardAmount: 0.3
-  newNightEnergyMultiplier: 0.7
+  newNightEnergyMultiplier: 0.8
   inMenu: 0
   paused: 0
   playerInChurchTrigger: 0
@@ -30806,22 +30806,22 @@ PrefabInstance:
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.46689984
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.88431025
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
@@ -30831,7 +30831,7 @@ PrefabInstance:
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -124.334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425442720741576887, guid: 6661bde116aeef147a2805a2f9bc580e,
         type: 3}
