@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
+  m_Name: Walking
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: f4b60a7f338063d4080f98d2639d0b9d,
+  m_Motion: {fileID: 1827226128182048838, guid: 93c29b18c4500b3429810c8032965686,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -41,7 +41,7 @@ AnimatorStateMachine:
     m_Position: {x: 180, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6092852336247758912}
-    m_Position: {x: 330, y: 330, z: 0}
+    m_Position: {x: 350, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

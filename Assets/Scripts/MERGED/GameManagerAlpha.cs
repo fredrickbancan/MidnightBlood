@@ -103,11 +103,11 @@ public class GameManagerAlpha : MonoBehaviour
                 hudTimer.value = 1 - remainingTime / levelTime;
             }
 
-            if (((int) remainingTime == bellTimer) && !churchBellRang)
+            if (remainingTime <= bellTimer && !churchBellRang)
             {
                 audioSource = player.GetComponent<AudioSource>();
                 audioSource.PlayOneShot(churchBellSound);
-
+                churchBellRang = true;
             }
 
 
@@ -248,12 +248,16 @@ public class GameManagerAlpha : MonoBehaviour
         return player;
     }
 
-    public void OnVillagerEscape(Vector3 eventPos)
+    public void OnVillagerAlerted()
     {
-
         audioSource = player.GetComponent<AudioSource>();
         audioSource.PlayOneShot(callForHelpSound);
+    }
 
+    public void OnVillagerEscape(Vector3 eventPos)
+    {
+        audioSource = player.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(callToPlayerSound);
         //spawn authority and set global value
         GameObject.Find("ChasedText").GetComponent<Text>().color = new Color(1, 0.43f, 0.43f, 1);
         Debug.Log("Villager escaped and authority spawned at " + eventPos.ToString());
@@ -267,14 +271,14 @@ public class GameManagerAlpha : MonoBehaviour
     public bool IsAuthoritySpawned()
     {
 
-        audioSource = player.GetComponent<AudioSource>();
-        audioSource.PlayOneShot(callToPlayerSound);
+       
         return authoritySpawned;
     }
     public void StartGame()
     {
         //GetMenus();
         remainingTime = levelTime;
+        churchBellRang = false;
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);

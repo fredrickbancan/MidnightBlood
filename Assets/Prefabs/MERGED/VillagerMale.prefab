@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5704177913782431331}
-  - component: {fileID: 5704177913782431337}
+  - component: {fileID: 5624148974029972803}
   - component: {fileID: 5704177913782431336}
   - component: {fileID: 5704177913782431335}
   - component: {fileID: 5704177913782431334}
@@ -30,20 +30,20 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5704177913782431330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.42, y: -1.684, z: -24.2}
+  m_LocalPosition: {x: 0, y: 0.956, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5704177913782431337
+--- !u!33 &5624148974029972803
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5704177913782431330}
-  m_Mesh: {fileID: 6434008096517374666, guid: 8d46b6f6ba0529e4599e42e0191adebd, type: 3}
+  m_Mesh: {fileID: 6434008096517374666, guid: 34185ce15c5a3204aaa0ae4a3c49769f, type: 3}
 --- !u!23 &5704177913782431336
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 23b7ac9515437cd4d9c4fec49e39cd52, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000004, y: 1.8554826, z: 1.0000005}
-  m_Center: {x: 0, y: 0.9196646, z: 0}
+  m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!114 &5704177913782431333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   rotateChangeChance: 0.25
   rotateStopChance: 0.15
   rotationAmount: 1
-  drawDebugVectors: 0
+  drawDebugVectors: 1
 --- !u!95 &5704177913782431332
 Animator:
   serializedVersion: 3
@@ -154,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 5704177913782431330}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: caebff7a012ee5845901b5da86c1c573, type: 2}
+  m_Controller: {fileID: 9100000, guid: 920a3d2878fcd404ea05d2bc8697147f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

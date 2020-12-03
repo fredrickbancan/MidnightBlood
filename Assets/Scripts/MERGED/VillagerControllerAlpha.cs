@@ -230,6 +230,7 @@ public class VillagerControllerAlpha : MonoBehaviour
         {
             //SET STATE TO FLEEING, PLAYER IS DETECTED.
             state = VillagerState.FLEEING;
+            GameManagerAlpha.instance.OnVillagerAlerted();
             if (drawDebugVectors)
             {
                 fovLeftLine.startColor = Color.red;
