@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5c4653d5efb004194684a410b5b0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAmount: 1
+  rotationAmount: 10
   authorityBody: {fileID: 4948529920384558176}
   authorityTransform: {fileID: 5210361284717384966}
   lrPrefab: {fileID: 2447691610218901707, guid: 34eebb28cf351684487fb1a4a681f5e0,

@@ -55,7 +55,7 @@ public class AuthorityControllerAlpha : MonoBehaviour
     /// </summary>
     private void TestPlayerDetection()
     {
-        Ray travelRay = new Ray(authorityTransform.position, authorityTransform.forward);
+        Ray travelRay = new Ray(authorityTransform.position + new Vector3(0, 1, 0), authorityTransform.forward);
         RaycastHit info;
         if (Physics.Raycast(travelRay, out info, playerCaptureDistance) && info.collider == GameManagerAlpha.instance.GetPlayer().GetComponent<Collider>())
         {
