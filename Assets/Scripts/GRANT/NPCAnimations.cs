@@ -13,7 +13,7 @@ public class NPCAnimations : MonoBehaviour
     {
         animationController = this.gameObject.GetComponentInParent<Animator>();
         villagerController = this.gameObject.GetComponentInParent<VillagerControllerAlpha>();
-        audioSource = this.gameObject.GetComponentInParent<AudioSource>();
+ //       audioSource = this.gameObject.GetComponentInParent<AudioSource>();
 
     }
     // Update is called once per frame
@@ -25,14 +25,14 @@ public class NPCAnimations : MonoBehaviour
         {
             Debug.Log("change to walking");
             this.gameObject.GetComponentInParent<Animator>().SetBool("Walking", true);
-            audioSource.Play();
+//            audioSource.Play();
 
         }
         else if (!villagerController.isWalkingFowards && (animationController.GetBool("Walking") == true))
         {
             Debug.Log("change to idle");
             this.gameObject.GetComponentInParent<Animator>().SetBool("Walking", false);
-            audioSource.Stop();
+ //           audioSource.Stop();
 
         }
     }

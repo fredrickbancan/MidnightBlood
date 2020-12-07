@@ -52,6 +52,7 @@ public class GameManagerAlpha : MonoBehaviour
     public bool playerInChurchTrigger = false;
     public bool gameOver = false;
     public bool churchBellRang = false;
+    public bool playedPlayerDied = false;
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip callForHelpSound;
@@ -292,6 +293,7 @@ public class GameManagerAlpha : MonoBehaviour
             energyLevel = 1.0F;
             killCount = 0;
             gameOver = false;
+            playedPlayerDied = false;
         }
         GameManagerHelper.restarted = true;
         SceneManager.LoadScene("Gold");
@@ -348,8 +350,14 @@ public class GameManagerAlpha : MonoBehaviour
         }
         else
         {
-            audioSource = player.GetComponent<AudioSource>();
-            audioSource.PlayOneShot(playerDiesSound);
+           if (!playedPlayerDied)
+            {
+
+                audioSource = player.GetComponent<AudioSource>();
+                audioSource.PlayOneShot(playerDiesSound);
+                playedPlayerDied = true;
+                Debug.Log("Player Dies");
+            }
             GameObject.Find("GameOverText").GetComponent<Text>().text = "Game Over";
             GameObject.Find("ReplayButton").GetComponentInChildren<Text>().text = "Play Again";
             GameObject.Find("ExitButton").GetComponentInChildren<Text>().text = "Quit";
