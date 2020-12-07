@@ -60,7 +60,7 @@ public class GameManagerAlpha : MonoBehaviour
     [SerializeField] AudioClip screamFromAttackSound;
     [SerializeField] AudioClip playerDiesSound;
     [SerializeField] AudioClip churchBellSound;
-    [SerializeField] int bellTimer = 20;
+    [SerializeField] private int bellTimer = 20;
 
     void Awake()
     {
@@ -108,6 +108,8 @@ public class GameManagerAlpha : MonoBehaviour
             {
                 audioSource = player.GetComponent<AudioSource>();
                 audioSource.PlayOneShot(churchBellSound);
+
+                //bellTowerAudio.PlayOneShot(churchBellSound);
                 churchBellRang = true;
             }
 
@@ -255,7 +257,7 @@ public class GameManagerAlpha : MonoBehaviour
 
     public void OnVillagerEscape(Vector3 eventPos)
     {
-        audioSource = player.GetComponent<AudioSource>();
+
         audioSource.PlayOneShot(callToPlayerSound);
         //spawn authority and set global value
         GameObject.Find("ChasedText").GetComponent<Text>().color = new Color(1, 0.43f, 0.43f, 1);
@@ -300,7 +302,10 @@ public class GameManagerAlpha : MonoBehaviour
     }
     public void PauseGame()
     {
+        audioSource = player.GetComponent<AudioSource>();
+
         Time.timeScale = 0;
+        audioSource.Pause();
         paused = true;
         pauseMenu.SetActive(true);
         Cursor.visible = true;
